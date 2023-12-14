@@ -8,7 +8,8 @@ module.exports = class users {
   }
   addUser() {
     return db.execute(
-      `INSERT INTO nodemysqlcrud VALUES (NULL,"${this.name}",${this.email}, "${this.comment}")`
+      'INSERT INTO nodemysqlcrud (id, name, email, comment) VALUES (?, ?, ?, ?)',
+      [this.id, this.name, this.email, this.comment]
     );
   }
   static SelectAll() {

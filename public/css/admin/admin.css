@@ -24,9 +24,10 @@
     padding: 12px 1rem;
     width: 20rem;
     height: 40px;
-    border-radius: 12px;
+    border-radius: 8px;
     font-family: sans-serif;
     color: #0A2647;
+    background-color: #F7F6F2;
 }
 .form_controls {
     display: flex;
