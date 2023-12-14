@@ -4,19 +4,22 @@
 <%- include("../includes/header.ejs")  %>
 <main>
     <div class="wrapper-forms">
-        <form action="/add-users" method="POST" class="form-add-user">
+        <form action="<% if (editing) { %> /edit-users <% } else {%> /add-users <%} %>" method="POST" class="form-add-user">
             <div class="form_controls " >
-                <input type="text" placeholder="Type Name..." name="name">
+                <input type="text" placeholder="Type Name..." name="name" value="<% if (editing){%> <%= user.name %><%} %>">
             </div>
             <div class="form_controls " >
-                <input type="email" placeholder="Type email" name="email">
+                <input type="email" placeholder="Type email" name="email" value="<% if (editing){%> <%= user.email %><%} %>">
             </div>
             <div class="form_controls comments" >
-                <textarea name="comments" id="" cols="30" rows="10" placeholder="type comments..."></textarea>
+                <textarea name="comments" id="" cols="30" rows="10" placeholder="type comments..." ><% if (editing){%> <%= user.comment %><%} %></textarea>
             </div>
             <div class="form_controls button" >
-                <button type="submit">Add Users</button>
+                <button type="submit"><% if (editing) { %> UPDATE <%} else { %> add user <% } %></button>
             </div>
+            <% if (editing) {%>
+                <input type="hidden" value="<%= user.id %>" name="userId">
+                <% } %>
         </form>
     </div>
 </main>

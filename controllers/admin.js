@@ -4,6 +4,7 @@ exports.getUser = (req, res) => {
   res.render("admin/add-user", {
     title: "add-user",
     path: req.path,
+    editing: false,
   });
 };
 
@@ -39,4 +40,37 @@ exports.getUserDashboard = (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+};
+exports.deleteUser = (req, res) => {
+  const userId = req.params.userId;
+  Users.deleteById(userId);
+  res.redirect("/admin/dashboard");
+};
+exports.getEditUser = (req, res) => {
+  const editMode = req.query.edit;
+  if (!editMode) {
+    return res.redirect("/");
+  }
+  const userId = req.params.userId;
+  Users.findById(userId)
+    .then(([users, forms]) => {
+      res.render("admin/add-user", {
+        title: "Update User Information",
+        path: req.path,
+        editing: editMode,
+        user: users[0],
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+exports.editUser = (req, res) => {
+  const body = req.body;
+  const userId = body.userId;
+  const new_name = body.name;
+  const new_email = body.email;
+  const new_comments = body.comments;
+  Users.editUser(userId,new_name,new_email,new_comments)
+  res.redirect("/")
 };

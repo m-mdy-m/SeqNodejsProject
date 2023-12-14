@@ -17,8 +17,10 @@
                     <p> <%= user.comment %> </p>
                 </div>
                 <div class="box-controllers buttons">
-                    <button>EDIT</button>
-                    <button>DELETE</button>
+                    <a href="/edit-users/<%= user.id %>?edit=true" class="btn">EDIT</a>
+                    <form action="/admin/dashboard/<%= user.id %>" method="POST">
+                        <button type="submit" class="btn">DELETE</button>
+                    </form>
                 </div>
             </div>
             <% } %>

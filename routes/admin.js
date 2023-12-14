@@ -4,4 +4,7 @@ const adminControllers = require('../controllers/admin')
 routes.get('/add-users', adminControllers.getUser)
 routes.post('/add-users',adminControllers.PostUsers)
 routes.get("/admin/dashboard",adminControllers.getUserDashboard)
+routes.get('/edit-users/:userId',adminControllers.getEditUser)
+routes.post("/admin/dashboard/:userId",adminControllers.deleteUser)
+routes.post('/edit-users',adminControllers.editUser)
 module.exports = routes
