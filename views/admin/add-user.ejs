@@ -1,0 +1,23 @@
+<%- include("../includes/base.ejs")  %>
+<link rel="stylesheet" href="/css/admin/admin.css">
+    </head>
+<%- include("../includes/header.ejs")  %>
+<main>
+    <div class="wrapper-forms">
+        <form action="/add-users" method="POST" class="form-add-user">
+            <div class="form_controls " >
+                <input type="text" placeholder="Type Name...">
+            </div>
+            <div class="form_controls " >
+                <input type="email" placeholder="Type email">
+            </div>
+            <div class="form_controls comments" >
+                <textarea name="" id="" cols="30" rows="10" placeholder="type comments..."></textarea>
+            </div>
+            <div class="form_controls button" >
+                <button type="submit">Add Users</button>
+            </div>
+        </form>
+    </div>
+</main>
+<%- include("../includes/end.ejs")  %>

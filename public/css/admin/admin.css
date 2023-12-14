@@ -1,0 +1,46 @@
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper-forms{
+    width: 90%;
+    height: 90%;
+    margin: 2rem auto;
+}
+.form-add-user{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: grid;
+    grid-template-rows: 10% 20% 60% 10%;
+}
+.form_controls > *{
+    border: none;
+    outline: none;
+    resize: none;
+    box-sizing: border-box;
+    padding: 12px 1rem;
+    width: 20rem;
+    height: 40px;
+    border-radius: 12px;
+    font-family: sans-serif;
+    color: #0A2647;
+}
+.form_controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.comments textarea{
+    height: 90%;
+}
+.button button{
+    cursor: pointer;
+    background-color: #6D67E4;
+    color: #F4EEE0;
+}
+.button button:hover{
+    background-color: #6d67e450;
+}

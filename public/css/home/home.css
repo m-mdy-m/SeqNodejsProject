@@ -21,6 +21,7 @@
   justify-items: center;
   align-items: start;
   justify-content: center;
+  margin: 0 10px;
 }
 .box-controllers {
   background-color: transparent;
