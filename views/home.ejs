@@ -1,6 +1,27 @@
 <%- include("includes/base.ejs")  %>
+<link rel="stylesheet" href="/css/home/home.css">
     </head>
 <%- include("includes/header.ejs")  %>
-    <main></main>
+    <main class="main">
+        <% if (users.length > 0) { %>
+        <div class="wrapper-users">
+            <% for(let user of users) { %>
+            <div class="box_users">
+                <div class="box-controllers name">
+                    <h1> <%= user.name  %> </h1>
+                </div>
+                <div class="box-controllers email">
+                    <h4> <%= user.email %> </h4>
+                </div>
+                <div class="box-controllers comment">
+                    <p> <%= user.comment %> </p>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <% } else{ %>
+            <h1 class="message">NOT FOUND USERs</h1>
+            <% } %>
+    </main>
 <%- include("includes/end.ejs")  %>
 
