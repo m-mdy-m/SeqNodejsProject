@@ -1,68 +1,74 @@
-# Mini Management System user
+# Node.js Express Project with Sequelize
 
-A Node.js based User Management System leveraging Express.js, MySQL2, and EJS for server-side templating. This application supports basic CRUD operations, providing a minimalistic interface for managing users.
+This project is a basic web application using Node.js, Express, EJS, and Sequelize ORM, designed to perform CRUD operations on a MySQL database.
+
+## Technologies Used
+
+### Node.js
+An open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser.
+
+### Express.js
+A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+### EJS
+Embedded JavaScript templating. A simple templating language that lets you generate HTML markup with plain JavaScript.
+
+### Sequelize
+A promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite, and Microsoft SQL Server. It features solid transaction support, relations, eager and lazy loading, read replication, and more.
+
+### MySQL
+An open-source relational database management system based on SQL – Structured Query Language.
+
+### Body-parser
+A Node.js body parsing middleware. Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+### Nodemon
+A utility that will monitor for any changes in your source and automatically restart your server. Perfect for development.
 
 
+## Prerequisites
 
-## Features
----
-- **Home (/):** Displays a list of all users. If no users are found, it prompts that none exist.
-- **Add Users (/add-users):** Provides a form to add new users, requiring name, email, and comment.
-- **Admin Dashboard (/admin/dashboard/):**  Allows admin actions like deleting users.
-- **Edit Users (/edit-users/:userId):** Facilitates editing existing user information with changes reflected in the MySQL database.
-
-
-## Technologies
----
-- **Express.js:** Web application framework for Node.js.
-- **MySQL2:** MySQL client for Node.js with improved features and performance.
-- **EJS:** Embedded JavaScript templating engine.
-- **Nodemon:** Utility that monitors for any changes in your source and automatically restarts your server.
+- Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
+- MySQL - [Download & Install MySQL](https://dev.mysql.com/downloads/), and set up a local database.
  
 ## Installation
-- Ensure that Node.js and MySQL are installed on your machine.
-- MySQL should be up and running with user credentials matching those provided for the application.
+Clone the project repository:
 
-# Database Setup
-
-```bash
-CREATE DATABASE IF NOT EXISTS `node-complete`;
-USE `node-complete`;
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `comment` text
-);
-```
-
-## Setup
-
-1. Clone the GitHub repository:
+- . Clone the GitHub repository:
 ```bash
 git clone https://github.com/m-mdy-m/MySQLNodeCrud.git
 cd MySQLNodeCrud
 ```
-2. Install dependencies:
+- . Install dependencies:
 ```bash
 npm install
 ```
 
-3.  Create a .env file in the root directory and fill it with your database credentials as follows:
+## Configuration
+
+3.  Create a .env file in the root directory of the project. Update the following configurations according to your database setup:
 ```bash
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=mdy_mmshly13831922
-DB_NAME=node-complete
+DB_USERNAME= root
+DB_PASSWORD= mdy_mmshly13831922
+DB_DATABASE= node-complete
+DB_HOST= localhost
 ```
 Make sure not to expose your database password in version control.
 
-5. start 
+## Running the Application
+
 ```bash
 npm start
 ```
 The application should now be running on `http://localhost:3000``.
+
+# Application Paths
+
+
+- **Home:** `GET /` => The landing page for the application.
+- **Add Users:** `GET /add-users` => A form for adding a new user to the database.
+- **Admin Dashboard:** `GET /admin/dashboard` =>  The admin dashboard where you can view the list of users.
+- **Edit Users:** `GET /edit-users/:userId` => A form to edit an existing user’s details. Replace :userId with the actual ID of the user you wish to edit.
 
 
 
@@ -72,10 +78,6 @@ The application should now be running on `http://localhost:3000``.
 - **Editing a User:** Use the ‘Edit’ button on a user’s entry on the home page, or manually navigate to `/edit-users/:userId` with the proper ID and editing mode query set.
 - **Deleting a User:** While on the admin dashboard, click the ‘Delete’ button beside any user’s entry to remove them.
 
-
-
-# Contributing
-Contributions to enhance the application are welcome. Please ensure to follow the standard Git workflow - fork the repository, make changes, and submit a pull request.
 
 
 ## License

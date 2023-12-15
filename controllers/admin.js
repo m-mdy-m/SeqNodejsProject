@@ -13,14 +13,13 @@ exports.PostUsers = (req, res, next) => {
   const name = body.name;
   const email = body.email;
   const comments = body.comments;
-  console.log("name =>", name);
-  console.log("email =>", email);
-  console.log("comments =>", comments);
-  const newUser = new Users(null, name, email, comments);
-  newUser
-    .addUser()
-    .then(() => {
-      console.log("add new users");
+  Users.create({
+    name: name,
+    email: comments,
+    comments: comments,
+  })
+    .then((result) => {
+      console.log("created users");
       res.redirect("/");
     })
     .catch((err) => {
@@ -29,22 +28,25 @@ exports.PostUsers = (req, res, next) => {
 };
 
 exports.getUserDashboard = (req, res) => {
-  Users.SelectAll()
-    .then((users) => {
-      res.render("admin/dashboard", {
-        title: "dashboard",
-        path: req.path,
-        users: users[0],
-      });
-    })
-    .catch((err) => {
-      console.log(err);
+  Users.findAll().then((users) => {
+    res.render("admin/dashboard", {
+      title: "dashboard",
+      path: req.path,
+      users: users,
     });
+  });
 };
 exports.deleteUser = (req, res) => {
   const userId = req.params.userId;
-  Users.deleteById(userId);
-  res.redirect("/admin/dashboard");
+  Users.findByPk(userId)
+    .then((users) => {
+      return users.destroy();
+    })
+    .then((result) => {
+      console.log("user delete");
+      res.redirect("/admin/dashboard");
+    })
+    .catch();
 };
 exports.getEditUser = (req, res) => {
   const editMode = req.query.edit;
@@ -52,13 +54,13 @@ exports.getEditUser = (req, res) => {
     return res.redirect("/");
   }
   const userId = req.params.userId;
-  Users.findById(userId)
-    .then(([users, forms]) => {
+  Users.findByPk(userId)
+    .then((users) => {
       res.render("admin/add-user", {
         title: "Update User Information",
         path: req.path,
         editing: editMode,
-        user: users[0],
+        user: users,
       });
     })
     .catch((err) => {
@@ -71,6 +73,18 @@ exports.editUser = (req, res) => {
   const new_name = body.name;
   const new_email = body.email;
   const new_comments = body.comments;
-  Users.editUser(userId,new_name,new_email,new_comments)
-  res.redirect("/")
+  Users.findByPk(userId)
+    .then((users) => {
+      users.name = new_name;
+      users.email = new_email;
+      users.comments = new_comments;
+      return users.save();
+    })
+    .then((result) => {
+      console.log("user update");
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
