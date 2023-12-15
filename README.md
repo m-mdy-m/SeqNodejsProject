@@ -36,8 +36,8 @@ Clone the project repository:
 
 - . Clone the GitHub repository:
 ```bash
-git clone https://github.com/m-mdy-m/MySQLNodeCrud.git
-cd MySQLNodeCrud
+git clone https://github.com/m-mdy-m/SeqNodejsProject.git
+cd SeqNodejsProject
 ```
 - . Install dependencies:
 ```bash
