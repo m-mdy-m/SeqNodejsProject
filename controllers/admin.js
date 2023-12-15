@@ -15,7 +15,7 @@ exports.PostUsers = (req, res, next) => {
   const comments = body.comments;
   Users.create({
     name: name,
-    email: comments,
+    email: email,
     comments: comments,
   })
     .then((result) => {
