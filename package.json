@@ -1,5 +1,5 @@
 {
-  "name": "mysqlnodecrud",
+  "name": "seqnodejsproject",
   "version": "1.0.0",
   "description": "A Node.js app for streamlined CRUD operations on a MySQL database",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m-mdy-m/MySQLNodeCrud.git"
+    "url": "git+https://github.com/m-mdy-m/SeqNodejsProject.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/m-mdy-m/MySQLNodeCrud/issues"
+    "url": "https://github.com/m-mdy-m/SeqNodejsProject/issues"
   },
-  "homepage": "https://github.com/m-mdy-m/MySQLNodeCrud#readme",
+  "homepage": "https://github.com/m-mdy-m/SeqNodejsProject#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
